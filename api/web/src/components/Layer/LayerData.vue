@@ -25,13 +25,14 @@
                 <div class="col-md-6 mb-3">
                     <div class='d-flex'>
                         <label class='form-label'>Cron Expression</label>
-                        <div class='ms-auto'>
+                        <div v-if='!disabled' class='ms-auto'>
                             <div class='dropdown'>
                                 <div class="dropdown-toggle" type="button" id="dropdownCron" data-bs-toggle="dropdown" aria-expanded="false">
                                     <SettingsIcon width='16' height='16' class='cursor-pointer dropdown-toggle'/>
                                 </div>
                                 <ul class="dropdown-menu px-1 py-1" aria-labelledby="dropdownCron">
-                                    <li class='py-1' @click='layerdata.cron = "rate(1 minutes)"'>rate(1 minutes)</li>
+                                    <li class='py-1' @click='layerdata.cron = "rate(1 minute)"'>rate(1 minute)</li>
+                                    <li class='py-1' @click='layerdata.cron = "rate(5 minutes)"'>rate(5 minutes)</li>
                                     <li class='py-1' @click='layerdata.cron = "cron(15 10 * * ? *)"'>cron(15 10 * * ? *)</li>
                                     <li class='py-1' @click='layerdata.cron = "cron(0/5 8-17 ? * MON-FRI *)"'>cron(0/5 8-17 ? * MON-FRI *)</li>
                                 </ul>
@@ -47,7 +48,7 @@
                 <div class="col-md-6 mb-3">
                     <div class='d-flex'>
                         <label class='form-label'>Schedule Task</label>
-                        <div class='ms-auto'>
+                        <div v-if='!disabled' class='ms-auto'>
                             <SettingsIcon @click='taskmodal = true' width='16' height='16' class='cursor-pointer'/>
                         </div>
                     </div>
